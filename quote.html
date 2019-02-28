@@ -143,6 +143,7 @@
                 id="address"
                 name="address"
                 placeholder="Enter address"
+                required
               />
             </div>
             <!-- City Field -->
@@ -154,6 +155,7 @@
                 id="city"
                 name="city"
                 placeholder="Enter city"
+                required
               />
             </div>
             <!-- State Field -->
@@ -163,6 +165,7 @@
                 class="form-control contact__form-input"
                 name="state"
                 id="state"
+                required
               >
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -226,6 +229,7 @@
                 id="zip"
                 name="zip"
                 placeholder="Enter zip"
+                required
               />
             </div>
           </div>
@@ -270,6 +274,7 @@
                 <option>Inside</option>
                 <option>Cul de sac</option>
                 <option>Corner</option>
+                <option>Other</option>
                 <i class="fa fa-angle-down" aria-hidden="true"></i>
               </select>
             </div>
@@ -283,6 +288,7 @@
               >
                 <option>Weekly</option>
                 <option>Full Service</option>
+                <option>Other</option>
               </select>
             </div>
             <!-- Pets -->
@@ -334,11 +340,13 @@
                 type="checkbox"
                 class="form-check-input"
                 id="acceptServiceDetails"
+                required
               />
               <label class="form-check-label" for="acceptServiceDetails"
-                >By pressing accept - You hereby affirm that you have read the
-                <a href="whatweoffer.htm">Service Details </a>and accept the
-                terms of this service.</label
+                >By pressing checking the box - You hereby affirm that you have
+                read the
+                <a target="_blank" href="whatweoffer.htm">Service Details </a
+                >and accept the terms of this service.</label
               >
             </div>
             <button type="submit" class="btn">Accept</button>
