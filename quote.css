@@ -1,0 +1,34 @@
+.contact__form-section {
+  margin: 0 auto;
+  background: #f7f7e9;
+  height: 326px;
+  top: 294px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.form-group.contact__form-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.contact__form-field input,
+.contact__form-field select {
+  flex: 1 0 auto;
+  margin: 10px 0 10px 10px;
+}
+
+.form-check {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.btn {
+  width: 90%;
+  margin: 0 auto;
+  padding: 15px 10px;
+  border-radius: 5px;
+}

