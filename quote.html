@@ -112,7 +112,12 @@
             service!
           </p>
         </div>
-        <form method="POST" data-netlify="true" class="contact__form">
+        <form
+          name="rmj-contact-form"
+          method="POST"
+          data-netlify="true"
+          class="contact__form"
+        >
           <div
             class="contact__form-section contact__form-section--1 def hid abs"
             style="left:25px; width:329px;"
@@ -229,14 +234,16 @@
             style="left:375px; width:329px;"
           >
             <!-- Phone Field -->
-            <div class="form-group contact__form-field">
+            <div
+              class="form-group contact__form-field contact__form-field--phone"
+            >
               <label for="phone">Phone</label>
               <input
                 type="tel"
                 class="form-control contact__form-input"
                 id="phone"
                 name="phone"
-                placeholder="Enter phone"
+                placeholder="123-456-7890"
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 required
               />

@@ -19,6 +19,9 @@
 .contact__form-field select {
   flex: 1 0 auto;
   margin: 10px 0 10px 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #555;
 }
 
 .form-check {
