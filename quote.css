@@ -39,3 +39,15 @@
 #lays529frppb > div {
   z-index: 5;
 }
+
+.contact__form-field--comments {
+  flex-wrap: wrap;
+}
+
+.contact__form-field--comments textarea {
+  border-radius: 5px;
+  resize: none;
+  flex: 1 0 auto;
+  display: block;
+  margin: 0 auto;
+}
